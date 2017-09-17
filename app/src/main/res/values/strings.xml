@@ -1,0 +1,14 @@
+<resources>
+  <string name="app_name">ToyDnaRnaAsConverter</string>
+  <string name="activity_main_rna_to_aa_sequence_name">mRNA to AS</string>
+  <string name="codon_meaning_stop">STOP</string>
+  <string name="codon_meaning_start">START(%s)</string>
+  <string name="codon_meaning_amino_acid">%s</string>
+  <string name="fragment_sequence_input_accept_button">Accept</string>
+  <string name="fragment_sequence_input_input_hint">Base sequence</string>
+  <string name="fragment_mrna_input_title">Input mRNA sequence</string>
+  <string name="fragment_conversion_display_title">Amino acid sequence</string>
+  <string name="error_parsing_sequence">Error parsing sequence</string>
+  <string name="fragment_dna_input_title">Input DNA sequence</string>
+  <string name="activity_main_dna_to_aa_sequence_name">DNA to Amino Acid sequence</string>
+</resources>
