@@ -38,6 +38,7 @@ public class GroupingEditText extends AppCompatEditText {
 
     private int groupSize;
     private boolean myChange;
+    private String textBefore;
 
     private GroupingTextWatcher(int groupSize) {
       this.groupSize = groupSize;
@@ -45,6 +46,7 @@ public class GroupingEditText extends AppCompatEditText {
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+      textBefore = getText().toString().replace(" ", "");
     }
 
     @Override
@@ -61,7 +63,7 @@ public class GroupingEditText extends AppCompatEditText {
 
       text = text.replace(" ", "");
 
-      boolean deleted = getText().toString().length() > text.length();
+      boolean deleted = textBefore.length() > text.length();
 
       StringBuilder result = new StringBuilder();
 
@@ -75,11 +77,12 @@ public class GroupingEditText extends AppCompatEditText {
 
       int selectionPosition = getSelectionStart();
 
-      if (!deleted && selectionPosition != 0 && (selectionPosition) % (groupSize + 1) == 0) {
-        selectionPosition++;
-      }
-      if (deleted) {
-        selectionPosition = result.length();
+      if (selectionPosition != 0 && (selectionPosition) % (groupSize + 1) == 0) {
+        if (deleted) {
+          selectionPosition--;
+        } else {
+          selectionPosition++;
+        }
       }
 
       myChange = true;

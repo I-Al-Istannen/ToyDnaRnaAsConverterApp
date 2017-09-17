@@ -30,7 +30,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.github.I-Al-Istannen:ToyDnaRnaAsConverter:d545f436ce'
+    compile 'com.github.I-Al-Istannen:ToyDnaRnaAsConverter:6643dd059c'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
