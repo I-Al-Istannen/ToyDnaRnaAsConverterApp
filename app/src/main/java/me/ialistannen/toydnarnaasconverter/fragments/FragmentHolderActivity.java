@@ -36,10 +36,10 @@ public class FragmentHolderActivity extends AppCompatActivity {
     if (extras != null && extras.containsKey(FRAGMENT_EXTRA_KEY)) {
       switch (extras.getString(FRAGMENT_EXTRA_KEY)) {
         case "DnaInputFragment":
-          switchToFragmentPushBack(new DnaInputFragment());
+          switchToFragment(new DnaInputFragment());
           break;
         case "MRnaInputFragment":
-          switchToFragmentPushBack(new MRnaInputFragment());
+          switchToFragment(new MRnaInputFragment());
           break;
         case "ConversionDisplayFragment":
           switchToFragment(new ConversionDisplayFragment());
@@ -86,7 +86,7 @@ public class FragmentHolderActivity extends AppCompatActivity {
 
   @Override
   public boolean onSupportNavigateUp() {
-    if (actionbarUpPopsFragment && getFragmentManager().getBackStackEntryCount() > 1) {
+    if (actionbarUpPopsFragment && getFragmentManager().getBackStackEntryCount() > 0) {
       getFragmentManager().popBackStack();
       return true;
     }
