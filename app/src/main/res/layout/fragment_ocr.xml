@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <RelativeLayout
+    android:id="@+id/container"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+
+    app:layout_constraintVertical_chainStyle="packed"
+    android:gravity="center"
+
+    android:layout_marginLeft="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/capture_new_image"
+    >
+
+    <ImageView
+      android:id="@+id/ocr_image"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+
+      android:contentDescription="@string/fragment_ocr_image_view_content_description"
+      android:maxHeight="400dp"
+      android:visibility="visible"
+
+      app:srcCompat="@mipmap/ic_launcher"
+      />
+
+    <me.ialistannen.toydnarnaasconverter.view.ResizableRectangle
+      android:id="@+id/ocr_image_selection_overlay"
+      android:layout_width="match_parent"
+      android:layout_height="400dp"
+
+      android:layout_centerInParent="true"
+      />
+
+  </RelativeLayout>
+
+  <Button
+    android:id="@+id/capture_new_image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:text="@string/fragment_ocr_take_image_button_text"
+    app:layout_constraintHorizontal_chainStyle="packed"
+
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginLeft="8dp"
+
+    app:layout_constraintTop_toBottomOf="@+id/container"
+    app:layout_constraintRight_toLeftOf="@+id/accept_image"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"/>
+
+  <Button
+    android:id="@+id/accept_image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:text="@string/fragment_ocr_accept_image_button_text"
+
+    android:layout_marginBottom="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginLeft="8dp"
+
+    app:layout_constraintBaseline_toBaselineOf="@+id/capture_new_image"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toRightOf="@+id/capture_new_image"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"/>
+
+</android.support.constraint.ConstraintLayout>

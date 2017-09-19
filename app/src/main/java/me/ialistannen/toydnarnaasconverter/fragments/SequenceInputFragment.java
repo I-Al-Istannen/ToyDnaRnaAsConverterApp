@@ -5,6 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -17,6 +20,7 @@ import me.ialistannen.toydnarnaasconverter.DnaSequencer;
 import me.ialistannen.toydnarnaasconverter.R;
 import me.ialistannen.toydnarnaasconverter.codon.Codon;
 import me.ialistannen.toydnarnaasconverter.exception.NoStartCodonFoundException;
+import me.ialistannen.toydnarnaasconverter.fragments.OcrFragment.OcrResultCallback;
 
 /**
  * A Fragment to input a base sequence.
@@ -37,7 +41,34 @@ public abstract class SequenceInputFragment extends FragmentBase {
 
     ButterKnife.bind(this, view);
 
+    setHasOptionsMenu(true);
+
     return view;
+  }
+
+  @Override
+  public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    super.onCreateOptionsMenu(menu, inflater);
+    inflater.inflate(R.menu.fragment_sequence_input_action_bar, menu);
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == R.id.fragment_sequence_input_action_bar_ocr) {
+      OcrFragment ocrFragment = new OcrFragment();
+      ocrFragment.setCallback(new OcrResultCallback() {
+        @Override
+        public void onReceiveOcr(String text) {
+          new AlertDialog.Builder(getActivity())
+              .setTitle("Hey")
+              .setMessage(text)
+              .show();
+        }
+      });
+      getFragmentHolderActivity().switchToFragmentPushBack(ocrFragment);
+      return true;
+    }
+    return super.onOptionsItemSelected(item);
   }
 
   @Override

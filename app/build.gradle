@@ -33,6 +33,9 @@ dependencies {
     compile 'com.github.I-Al-Istannen:ToyDnaRnaAsConverter:6643dd059c'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile 'com.rmtheis:tess-two:8.0.0'
+
     testCompile 'junit:junit:4.12'
 
     compile 'com.jakewharton:butterknife:8.8.1'

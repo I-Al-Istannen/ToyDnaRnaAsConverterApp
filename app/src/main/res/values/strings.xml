@@ -11,4 +11,12 @@
   <string name="error_parsing_sequence">Error parsing sequence</string>
   <string name="fragment_dna_input_title">Input DNA sequence</string>
   <string name="activity_main_dna_to_aa_sequence_name">DNA to Amino Acid sequence</string>
+  <string name="fragment_sequence_input_action_bar_ocr_name">OCR</string>
+  <string name="error_copying_assets_title">An error occurred trying to copy the assets.</string>
+  <string name="error_capturing_photo_title">Error capturing photo</string>
+  <string name="fragment_ocr_take_image_button_text">Take image</string>
+  <string name="fragment_ocr_image_view_content_description">The image obtained from OCR.</string>
+  <string name="unknown_error">Unknown.</string>
+  <string name="fragment_ocr_error_could_not_decode_image">The image could not be decoded.</string>
+  <string name="fragment_ocr_accept_image_button_text">Accept image</string>
 </resources>

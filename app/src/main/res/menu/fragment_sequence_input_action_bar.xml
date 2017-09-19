@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item
+    android:id="@+id/fragment_sequence_input_action_bar_ocr"
+    app:showAsAction="always"
+    android:icon="@drawable/ic_ocr"
+    android:title="@string/fragment_sequence_input_action_bar_ocr_name"
+    />
+
+</menu>
