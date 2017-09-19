@@ -1,7 +1,7 @@
 package me.ialistannen.toydnarnaasconverter.util;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
+import android.support.design.widget.TextInputEditText;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputFilter.AllCaps;
@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 /**
  * A {@link android.widget.EditText} that groups the input.
  */
-public class GroupingEditText extends AppCompatEditText {
+public class GroupingEditText extends TextInputEditText {
 
   {
     init();

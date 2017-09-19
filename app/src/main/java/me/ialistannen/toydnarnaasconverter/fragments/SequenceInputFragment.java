@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -59,10 +60,29 @@ public abstract class SequenceInputFragment extends FragmentBase {
       ocrFragment.setCallback(new OcrResultCallback() {
         @Override
         public void onReceiveOcr(String text) {
-          new AlertDialog.Builder(getActivity())
-              .setTitle("Hey")
-              .setMessage(text)
-              .show();
+          if (sequenceInput != null && sequenceInput.getEditText() != null) {
+            String normalizedText = normalizeString(text);
+
+            Log.d("SequenceInputFragment", "Normalized message: " + normalizedText);
+
+            // as the fragment might be shown again (resumed) after this is called
+            SequenceInputFragment.this.lastText = normalizedText;
+
+            // if it is already shown
+            sequenceInput.getEditText().setText(normalizedText);
+          }
+        }
+
+        private String normalizeString(String input) {
+          String result = input;
+          for (String line : input.split("\n")) {
+            // Just somewhere have at least two of these valid letters
+            if (line.matches(".*[UATGC].*[UATGC].*[UATGC].*")) {
+              result = line.replaceAll("[^UATGC]", "");
+              break;
+            }
+          }
+          return result;
         }
       });
       getFragmentHolderActivity().switchToFragmentPushBack(ocrFragment);

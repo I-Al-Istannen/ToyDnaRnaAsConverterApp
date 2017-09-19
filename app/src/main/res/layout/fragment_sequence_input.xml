@@ -29,6 +29,8 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
 
+      android:inputType="textFilter"
+
       android:hint="@string/fragment_sequence_input_input_hint"
       />
 
